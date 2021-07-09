@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import Counter from "./counter";
 
-const Landing=()=> {
-    return (
-        <div>
-            Landing
-        </div>
-    )
-}
+const Landing = () => {
+  return <Counter />;
+};
 
-export default Landing
+export default Landing;

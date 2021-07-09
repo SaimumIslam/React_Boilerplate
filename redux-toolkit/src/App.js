@@ -1,16 +1,12 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Routes from "routes";
 
-import { Landing } from "pages";
+import StoreProvider from "store/store-provider";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Landing />
-        </Route>
-      </Switch>
-    </Router>
+    <StoreProvider>
+      <Routes />
+    </StoreProvider>
   );
 }
 
