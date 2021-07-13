@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 
-import { fetchCount } from "api";
+import { fetchCount } from "services/api";
 import { catchDispatch } from "utils";
 import {
   CounterContext,

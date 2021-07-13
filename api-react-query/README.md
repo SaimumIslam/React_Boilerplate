@@ -1,9 +1,12 @@
+# Getting Started with Create React App
+
 ## Library and Styles
 
 - [Create React App](https://github.com/facebook/create-react-app)
-- [React Router](https://reactrouter.com/)
-- [React Tookit](https://redux-toolkit.js.org/)
-- [Tailwind Ui](https://tailwindui.com/documentation).
+- [Reactrouter](https://reactrouter.com/)
+- [Context-api](https://reactjs.org/docs/context.html)
+- [React-query](https://react-query.tanstack.com/)
+- [Sweetalert2](https://sweetalert2.github.io/)
 
 ## File Structure
 

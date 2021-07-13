@@ -1,8 +1,11 @@
-This project was created with [Create React App](https://github.com/facebook/create-react-app), using the [Context-api](https://reactjs.org/docs/context.html).
+## Library and Styles
+
+- [Create React App](https://github.com/facebook/create-react-app)
+- [React router](https://reactrouter.com/)
+- [Context-api](https://reactjs.org/docs/context.html)
 
 ## File Structure
 
-- api: api endpoints.
 - assets: images and icons and other resources.
 - components:
   - templates: templetes of common views
@@ -12,6 +15,8 @@ This project was created with [Create React App](https://github.com/facebook/cre
 - pages: pages design.
 - routes: routing of application.
 - store: global states management ex: redux, context api.
+- services:
+  - api: api endpoints.
 - utils: utility funtions
 
 - App.js: all higher order components and providers.
