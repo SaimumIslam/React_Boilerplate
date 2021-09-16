@@ -1,7 +1,7 @@
-import React, { createContext, useReducer, useMemo } from "react";
+import React, { createContext, useMemo, useReducer } from "react";
 
 // Create a context with by calling createContext()
-export const UserContext = createContext();
+export const NewContext = createContext();
 
 export const SET_ISLOGIN = "SET_ISLOGIN";
 export const SET_USER = "SET_USER";
@@ -11,7 +11,7 @@ const initialState = {
   user: "",
 };
 
-const counterReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case SET_ISLOGIN: {
       return {
@@ -33,10 +33,10 @@ const counterReducer = (state, action) => {
 
 // Create a custom Provider for the context
 const UserProvider = (props) => {
-  const [state, dispatch] = useReducer(counterReducer, initialState); // useMemo to optimize the context value
+  const [state, dispatch] = useReducer(reducer, initialState); // useMemo to optimize the context value
 
   const value = useMemo(() => ({ state, dispatch }), [state]);
 
-  return <UserContext.Provider value={value} {...props} />;
+  return <NewContext.Provider value={value} {...props} />;
 };
 export default UserProvider;

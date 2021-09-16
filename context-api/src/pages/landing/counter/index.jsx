@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useCounterContext } from "store/contexts/counter";
-
 import styles from "./index.module.css";
+
 
 const Counter = () => {
   const {

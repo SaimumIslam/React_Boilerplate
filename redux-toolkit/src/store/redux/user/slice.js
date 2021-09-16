@@ -6,7 +6,7 @@ const initialState = {
   user: { role: "SA" },
 };
 
-export const userSlice = createSlice({
+export const slice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -19,6 +19,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setLogin, setUser } = userSlice.actions;
+export const { setLogin, setUser } = slice.actions;
 
-export default userSlice.reducer;
+export default slice.reducer;

@@ -1,9 +1,9 @@
-import { Fragment } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { NotFound } from "components/templates/errors";
-
+import { Fragment } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AuthenticatedRoute from "./authenticated-route";
 import BROWSE_ROUTE from "./paths";
+
 
 const AppRoute = () => {
   return (

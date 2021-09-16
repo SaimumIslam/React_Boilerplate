@@ -11,8 +11,8 @@ import {
 const useCounterRedux = () => {
   const dispatch = useDispatch();
 
-  const counterSelector = (state) => state.counter;
-  const { count } = useSelector(counterSelector);
+  const selector = (state) => state.counter;
+  const { count } = useSelector(selector);
 
   const decrementFuntion = useCallback(() => {
     dispatch(decrement());

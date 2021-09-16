@@ -3,15 +3,15 @@ import { useCallback, useContext } from "react";
 import { fetchCount } from "services/api";
 import { catchDispatch } from "utils";
 import {
-  CounterContext,
+  NewContext,
   INCREMENT_BY_AMOUNT,
   DECREMENT,
   SET_STATUS,
   SET_COUNT,
 } from "./provider";
 
-export const useCounterContext = () => {
-  const context = useContext(CounterContext);
+const useCounterContext = () => {
+  const context = useContext(NewContext);
   if (!context) {
     throw new Error("useCounterContext must be used inside a CounterProvider");
   }
@@ -56,3 +56,4 @@ export const useCounterContext = () => {
     resetCount,
   };
 };
+export default useCounterContext

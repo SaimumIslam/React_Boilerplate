@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useMemo } from "react";
 
 // Create a context with by calling createContext()
-export const CounterContext = createContext();
+export const NewContext = createContext();
 
 export const INCREMENT_BY_AMOUNT = "INCREMENT_BY_AMOUNT";
 export const DECREMENT = "DECREMENT";
@@ -14,7 +14,7 @@ const initialState = {
   message: null,
 };
 
-const counterReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case DECREMENT: {
       return {
@@ -47,10 +47,11 @@ const counterReducer = (state, action) => {
 };
 
 // Create a custom Provider for the context
-export const CounterProvider = (props) => {
-  const [state, dispatch] = useReducer(counterReducer, initialState); // useMemo to optimize the context value
+ const CounterProvider = (props) => {
+  const [state, dispatch] = useReducer(reducer, initialState); // useMemo to optimize the context value
 
   const value = useMemo(() => ({ state, dispatch }), [state]);
 
-  return <CounterContext.Provider value={value} {...props} />;
+  return <NewContext.Provider value={value} {...props} />;
 };
+export default CounterProvider

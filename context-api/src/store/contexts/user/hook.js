@@ -1,9 +1,9 @@
 import { useCallback, useContext } from "react";
+import { NewContext, SET_ISLOGIN, SET_USER } from "./provider";
 
-import { UserContext, SET_ISLOGIN, SET_USER } from "./provider";
 
 const useUserContext = () => {
-  const context = useContext(UserContext);
+  const context = useContext(NewContext);
   if (!context) {
     throw new Error("useUserContext must be used inside a UserProvider");
   }
