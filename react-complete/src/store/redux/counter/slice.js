@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { fetchCount } from "services/api";
+import { fetchCount } from "services/api/counter";
 
 const initialState = {
   count: 0,

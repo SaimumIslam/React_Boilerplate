@@ -1,7 +1,15 @@
 import React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
 
-function CenterLayout({ children }) {
-  return <div>{children}</div>;
-}
+import { Root } from "./elements";
+
+const CenterLayout = ({ children }) => {
+  return (
+    <Root component="main">
+      <CssBaseline />
+      {children}
+    </Root>
+  );
+};
 
 export default CenterLayout;
