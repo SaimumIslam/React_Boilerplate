@@ -48,8 +48,10 @@ export const InputBase = styled(MuiInputBase)(({ theme }) => ({
       borderColor: theme.palette.text.disabled,
     },
   },
-  "& .Mui-error": {
-    border: "1px solid",
-    borderColor: theme.palette.error.main,
+  "&.Mui-error": {
+    "& .MuiInputBase-input": {
+      border: "1px solid",
+      borderColor: theme.palette.error.main,
+    },
   },
 }));
