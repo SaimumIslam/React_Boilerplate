@@ -28,6 +28,18 @@
 - App.js: all higher order components and providers.
 - index.js: root file.
 
+## Developer Instruction
+
+- folder/file name: kebab-case
+- variable name: snake_case
+- funcion name: camelCase
+- constant variable/data: SNAKE_CASE
+- react cmponents follows `.jsx` others `.js`
+- component folder includes: `index.jsx` and `elements.jsx`
+- all sub-features should inside the main feature folder.
+- common feature should be inside the componet folder.
+- please follow the import style of any page and code.
+
 ## Available Scripts
 
 In the project directory, you can run:
