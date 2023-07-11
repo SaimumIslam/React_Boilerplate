@@ -6,8 +6,8 @@
 
 const colors = {
   primary: {
-    light: "rgba(0, 110, 170, .1)",
-    main: "#006eaa", //#006EAA
+    light: "rgba(112, 76, 182, 0.1)",
+    main: "rgb(112, 76, 182)", //#006EAA
     contrastText: "#fff",
   },
   secondary: {

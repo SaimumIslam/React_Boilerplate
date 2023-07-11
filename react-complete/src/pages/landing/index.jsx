@@ -1,11 +1,13 @@
 import React from "react";
 import Counter from "./counter";
 
+import { Container } from "./elements";
+
 const Landing = () => {
   return (
-    <div>
+    <Container>
       <Counter />
-    </div>
+    </Container>
   );
 };
 
