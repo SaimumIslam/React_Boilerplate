@@ -1,14 +1,14 @@
 import request from "services/request";
 import ENDPOINTS from "services/endpoints";
 
-export const getTotalUsers = (params = {}) =>
+export const totalUsers = (params = {}) =>
   request({
     method: "get",
     url: ENDPOINTS.USERS,
     params: params,
   });
 
-export const getUserDetails = (userId, params = {}) =>
+export const userDetails = (userId, params = {}) =>
   request({
     method: "get",
     url: `${ENDPOINTS.USERS}${userId}/`,

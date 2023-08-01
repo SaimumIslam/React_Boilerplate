@@ -15,14 +15,14 @@ import { createUser, updateUser } from "services/api/users";
 
 import { FormWraper, FormFlexRow, FormContainer } from "./elements";
 
-function Form({ instance, isUpdate }) {
-  const apiFunction = isUpdate ? updateUser : createUser;
-  const successMessage = isUpdate
+function Form({ instance, is_update }) {
+  const apiFunction = is_update ? updateUser : createUser;
+  const success_message = is_update
     ? "People successfully updated"
     : "People successfully created";
 
   const { enqueueSnackbar } = useSnackbar();
-  const { setPath, primaryPath } = useNavigation();
+  const { setPath, primary_pathname } = useNavigation();
 
   const defaultValues = {
     id: instance?.id,
@@ -42,8 +42,8 @@ function Form({ instance, isUpdate }) {
       handleFormError(setError, error);
     },
     onSuccess: (data) => {
-      enqueueSnackbar(successMessage, { variant: "success" });
-      setPath(`/${primaryPath}/${data?.id}`);
+      enqueueSnackbar(success_message, { variant: "success" });
+      setPath(`/${primary_pathname}/${data?.id}`);
     },
   });
 
@@ -78,7 +78,7 @@ function Form({ instance, isUpdate }) {
             <OutlineLabelInputField
               label="Email"
               type="email"
-              readOnly={Boolean(isUpdate)}
+              readOnly={Boolean(is_update)}
             />
           </FormController>
           <FormController
@@ -132,19 +132,19 @@ function Form({ instance, isUpdate }) {
       <ManageAction
         onSubmit={handleSubmit(onSubmit)}
         onCancel={handleCancel}
-        isUpdate={isUpdate}
+        is_update={is_update}
       />
     </FormContainer>
   );
 }
 Form.propTypes = {
   instance: PropTypes.object,
-  isUpdate: PropTypes.bool,
+  is_update: PropTypes.bool,
 };
 
 Form.defaultProps = {
   instance: {},
-  isUpdate: false,
+  is_update: false,
 };
 
 export default Form;

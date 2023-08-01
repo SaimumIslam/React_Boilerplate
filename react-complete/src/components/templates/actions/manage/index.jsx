@@ -4,17 +4,17 @@ import PropTypes from "prop-types";
 import { CheckIcon, CloseIcon } from "assets/icons";
 import { RoundedButton } from "components/material/buttons";
 
-import { ActionContainer } from "./elements";
+import { Container } from "./elements";
 
 const ManageAction = ({
   onSubmit,
   onCancel,
-  isUpdate,
-  submitText,
+  is_update,
+  submit_text,
   disabled,
 }) => {
   return (
-    <ActionContainer>
+    <Container>
       <RoundedButton
         type="submit"
         color="primary"
@@ -23,7 +23,7 @@ const ManageAction = ({
         onClick={onSubmit}
         disabled={disabled}
       >
-        {isUpdate ? "Update" : submitText}
+        {is_update ? "Update" : submit_text}
       </RoundedButton>
       <RoundedButton
         color="primary"
@@ -33,19 +33,19 @@ const ManageAction = ({
       >
         Cancel
       </RoundedButton>
-    </ActionContainer>
+    </Container>
   );
 };
 
 ManageAction.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  isUpdate: PropTypes.bool,
-  submitText: PropTypes.string,
+  is_update: PropTypes.bool,
+  submit_text: PropTypes.string,
 };
 
 ManageAction.defaultProps = {
-  isUpdate: false,
-  submitText: "Save",
+  is_update: false,
+  submit_text: "Save",
 };
 export default ManageAction;

@@ -4,12 +4,12 @@ import JSURL from "jsurl";
 import React from "react";
 
 function useQueryParam(key) {
-  let [searchParams, setSearchParams] = useSearchParams();
-  let paramValue = searchParams.get(key);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paramValue = searchParams.get(key);
 
-  let value = React.useMemo(() => JSURL.parse(paramValue), [paramValue]);
+  const value = React.useMemo(() => JSURL.parse(paramValue), [paramValue]);
 
-  let setValue = React.useCallback(
+  const setValue = React.useCallback(
     (newValue, options) => {
       let newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set(key, JSURL.stringify(newValue));

@@ -2,12 +2,12 @@ import { useCallback } from "react";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 function useQuery() {
-  const searchParams = new URLSearchParams(useLocation().search);
-  const paramsObject = {};
-  for (const [key, value] of searchParams) {
-    paramsObject[key] = value;
+  const search_params = new URLSearchParams(useLocation().search);
+  const params_object = {};
+  for (const [key, value] of search_params) {
+    params_object[key] = value;
   }
-  return paramsObject;
+  return params_object;
 }
 
 const useNavigation = () => {
@@ -17,10 +17,10 @@ const useNavigation = () => {
   const navigate = useNavigate();
   const { pathname, hash } = useLocation();
 
-  const primaryPath = pathname?.split("/")[1] || "";
-  const secondaryPath = pathname?.split("/")[2] || "";
-  const hashParam = hash?.split("#")[1] || "";
-  const isUpdate = secondaryPath === "update" ? true : false;
+  const hash_param = hash?.split("#")[1] || "";
+  const primary_pathname = pathname?.split("/")[1] || "";
+  const secondary_pathname = pathname?.split("/")[2] || "";
+  const is_update = secondary_pathname === "update" ? true : false;
 
   const setPath = useCallback(
     (path) => {
@@ -37,11 +37,11 @@ const useNavigation = () => {
     hash: hash,
     query: query,
     params: params,
-    path: pathname,
-    primaryPath: primaryPath,
-    secondaryPath: secondaryPath,
-    isUpdate: isUpdate,
-    hashParam: hashParam,
+    pathname: pathname,
+    primary_pathname: primary_pathname,
+    secondary_pathname: secondary_pathname,
+    is_update: is_update,
+    hash_param: hash_param,
     setPath: setPath,
     backPath: backPath,
   };
