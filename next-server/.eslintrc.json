@@ -1,0 +1,81 @@
+{
+    // "extends": ["next/core-web-vitals","prettier"],
+  "extends": ["next/babel","next/core-web-vitals","prettier"],
+  "plugins": ["eslint-plugin-prettier"],
+  "rules": {
+    "prettier/prettier": ["warn", {}, { "usePrettierrc": true }], // Use .prettierrc file as source
+    "react/display-name": "off",
+    "import/no-unresolved": "off",
+    "no-undefined": "error",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "none", "ignoreRestSiblings": false }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "object",
+          "type",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          { 
+            "pattern": "hoc", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "components", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "modules", 
+            "group": "internal" 
+          }, 
+          { 
+            "pattern": "styles", 
+            "group": "internal" 
+          },
+          { 
+            "pattern": "assets/**", 
+            "group": "internal"
+          },
+          { 
+            "pattern": "hooks/**", 
+            "group": "internal" 
+          },
+          { 
+            "pattern": "state-manager/**", 
+            "group": "internal" 
+          },
+          { 
+            "pattern": "services/**", 
+            "group": "internal",
+            "position": "after" 
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "next", "internal"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ]
+  }
+}
