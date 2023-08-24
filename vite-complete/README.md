@@ -1,21 +1,34 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Currently, we use plugins:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Packages
+## Run command
 
-- [Create react app](https://github.com/facebook/create-react-app)
-- [React Router](https://reactrouter.com/)
-- [Material Ui](https://mui.com/material-ui/)
-- [Redux toolkit](https://redux-toolkit.js.org/)
-- [React hook form](https://react-hook-form.com/)
-- [React query](https://tanstack.com/query/v3/)
-- [Day.js](https://www.npmjs.com/package/dayjs)
+`npm run dev` (Run using development environment:)
+
+`npm run build` (Run using production environment:)
+
+`npm run staging` (Run using staging environment:)
+
+`npm run preview` (Run static preview:)
+
+## Linting
+
+`npm run lint` (Check linting:)
+
+`npm run lint:fix` (Check linting fix:)
+
+## Test command
+
+`npm run test` (Run using testing environment:)
+
+`npm run test:unit` (Run unit test file unit.test.js/jsx)
+
+`npm run test:e2e` (Run e2e test file unit.spec.js/jsx)
+
+`npm run report:e2e` (Show e2e report)
 
 ## Developer Instruction
 
@@ -37,7 +50,6 @@ Currently, two official plugins are available:
 
   - \_\_controller: common used styled components
   - \_\_providers: common used styled components
-
   - \_styles: common used styled components
   - material: customized material ui components
   - widgets: combined with material ui or others, component specific.
@@ -57,16 +69,31 @@ Currently, two official plugins are available:
   - query-client.js : react query default configuration
   - request : axios settings
 - utils: utility funtions
-
 - App.jsx: all higher order components and providers.
 - main.jsx: root file.
 
-Future Introduce:
+### Packages
+
+- [React Router](https://reactrouter.com/)
+- [Material Ui](https://mui.com/material-ui/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Hook Form](https://react-hook-form.com/)
+- [React Query](https://tanstack.com/query/v3/)
+- [React Sncakcbar](https://notistack.com/)
+- [Day.js](https://www.npmjs.com/package/dayjs)
+
+### Dev Packages
+
+- [Vitejs](https://vitejs.dev/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+
+### Testing Packages
+
+- [Vitest](https://vitest.dev/)
+- [Testing Library](https://testing-library.com/)
+- [Playwright](https://playwright.dev/)
+
+#### Future Introduce:
 
 - [Lightening css](https://lightningcss.dev/css-modules.html)
-- [Vitest](https://vitest.dev/)
-
-# Test command
-
-`npx playwright test`
-`npx playwright show-report`
