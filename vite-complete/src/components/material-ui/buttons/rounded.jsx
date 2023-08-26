@@ -9,7 +9,7 @@ export const RoundedButton = styled(Button)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightRegular,
     minWidth: 120,
   },
-  contained: {
+  "& .MuiButton-contained": {
     padding: "7px 35px", //40 height
     "&:hover": {
       boxShadow: theme.shadows[8],

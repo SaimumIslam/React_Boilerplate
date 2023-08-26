@@ -5,8 +5,8 @@ import { ResponseLoader } from "components/modules/loaders";
 
 import { totalUsers } from "services/rest-api/users";
 
-import Card from "./card";
 import { Container } from "./_styles";
+import Card from "./card";
 
 function Root() {
   const { data, isLoading } = useQuery(["total_users"], totalUsers);

@@ -1,8 +1,9 @@
 import { createRef } from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
-import MuiIconButton from "@mui/material/IconButton";
 import { SnackbarProvider as NotificationProvider } from "notistack";
+
+import MuiIconButton from "@mui/material/IconButton";
 
 import { CloseIcon } from "assets/icons";
 

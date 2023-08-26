@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { Link as RouterLink } from "react-router-dom";
 
+import { Link as RouterLink } from "react-router-dom";
 import { RoundedButton } from "components/material-ui/buttons";
 
 import { AddIcon, ArrowLeftIcon } from "assets/icons";

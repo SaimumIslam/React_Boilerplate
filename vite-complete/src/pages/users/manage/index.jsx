@@ -1,25 +1,20 @@
-
 import { useQuery } from "react-query";
 
 import { ResponseLoader } from "components/modules/loaders";
 
 import useNavigation from "hooks/useNavigation";
-
 import { userDetails } from "services/rest-api/users";
 
-
-import { Container } from "./_styles";
 import Form from "./form";
+import { Container } from "./_styles";
 
 function Manage() {
   const { is_update, params } = useNavigation();
   const user_id = params?.id;
 
-  const { isLoading, data } = useQuery(
-    ["details", user_id],
-    () => userDetails(user_id),
-    { enabled: false }
-  );
+  const { isLoading, data } = useQuery(["details", user_id], () => userDetails(user_id), {
+    enabled: false,
+  });
 
   if (isLoading) return <ResponseLoader />;
 

@@ -1,5 +1,5 @@
-import { Fragment } from "react";
 import NotFound from "pages/not-found";
+import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LandingLayout from "layouts/landing";

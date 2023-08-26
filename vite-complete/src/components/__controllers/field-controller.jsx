@@ -1,5 +1,5 @@
-import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
+import React, { forwardRef } from "react";
 import { Controller } from "react-hook-form";
 
 const FieldController = forwardRef((props, ref) => {

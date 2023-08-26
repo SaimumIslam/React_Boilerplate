@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 import { RoundedButton } from "components/material-ui/buttons";
-
 import { CheckIcon, CloseIcon } from "assets/icons";
 
 import { Container } from "./_styles";

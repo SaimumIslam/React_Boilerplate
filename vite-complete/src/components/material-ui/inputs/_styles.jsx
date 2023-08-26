@@ -1,7 +1,8 @@
+import { styled } from "@mui/material/styles";
+
 import Box from "@mui/material/Box";
 import MuiInputBase from "@mui/material/InputBase";
 import MuiInputLabel from "@mui/material/InputLabel";
-import { styled } from "@mui/material/styles";
 
 export const InputLabel = styled(MuiInputLabel)(({ theme }) => ({
   "& .MuiInputLabel-root": {

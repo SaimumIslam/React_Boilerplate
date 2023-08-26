@@ -2,17 +2,15 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 
+import { FieldController } from "components/__controllers";
+import { ResponseLoader } from "components/modules/loaders";
 import { RoundedButton } from "components/material-ui/buttons";
 import { OutlineLabelInputField } from "components/material-ui/inputs";
-import { ResponseLoader } from "components/modules/loaders";
-import { FieldController } from "components/__controllers";
 
 import { LogInIcon } from "assets/icons";
 
 import { useUserRedux } from "store/redux/user";
-
 import { attemptLogin } from "services/rest-api/auth";
-
 
 import { Container, FormWraper, Title } from "./_styles";
 

@@ -1,10 +1,8 @@
-// import React from "react";
 // import ReactGA from "react-ga4";
 
 import { ThemeProvider } from "@mui/material/styles";
 
 import SnackbarProvider from "components/__providers/snackbar-provider";
-
 import Routes from "routes";
 import defaultTheme from "themes/default";
 import StateProvider from "store/provider";
