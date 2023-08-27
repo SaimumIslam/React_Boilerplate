@@ -1,43 +1,29 @@
 import PropTypes from "prop-types";
-
 import { Link as RouterLink } from "react-router-dom";
+
 import { RoundedButton } from "components/material-ui/buttons";
+import { AddIcon } from "assets/icons";
 
-import { AddIcon, ArrowLeftIcon } from "assets/icons";
-
-import { BackButton, ChildWraper, Container, Title, TitleWraper } from "./_styles";
+import { ChildWraper, Container, Title, TitleWraper } from "./_styles";
 
 function RootHeader(props) {
-  const {
-    items,
-    route,
-    title,
-    onBack,
-    children,
-    button_icon,
-    button_title,
-    button_color,
-  } = props;
+  const { items, route, title, children, button_icon, button_title, button_color } =
+    props;
 
   const Icon = button_icon;
 
   return (
     <Container>
       <TitleWraper>
-        {route && (
+        {Boolean(route) && (
           <RoundedButton
+            to={route}
             variant="contained"
             color={button_color}
             startIcon={<Icon />}
-            component={RouterLink}
-            to={route}>
+            component={RouterLink}>
             {button_title}
           </RoundedButton>
-        )}
-        {onBack && (
-          <BackButton startIcon={<ArrowLeftIcon />} onClick={onBack}>
-            {button_title}
-          </BackButton>
         )}
         <Title>
           {title}

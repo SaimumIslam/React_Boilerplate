@@ -1,2 +1,2 @@
-export * from "./outline-label";
-export { default as OutlineLabelInputField } from "./outline-label";
+export * from "./outline";
+export { default as OutlineInputField } from "./outline";

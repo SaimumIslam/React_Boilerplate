@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
 export const FormContainer = styled("form")(({ theme }) => ({
@@ -11,7 +10,7 @@ export const FormContainer = styled("form")(({ theme }) => ({
   },
 }));
 
-export const FormFlexRow = styled(Box)(({ theme }) => ({
+export const FormFlexRow = styled("div")(({ theme }) => ({
   width: "100%",
   display: "flex",
   alignItems: "center",

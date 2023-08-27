@@ -10,5 +10,14 @@ export { default as AddIcon } from "./add";
 export * from "./arrow-left";
 export { default as ArrowLeftIcon } from "./arrow-left";
 
+export * from "./angle-down";
+export { default as AngleDownIcon } from "./angle-down";
+
 export * from "./login";
 export { default as LogInIcon } from "./login";
+
+export * from "./minimize";
+export { default as MinimizeIcon } from "./minimize";
+
+export * from "./search";
+export { default as SearchIcon } from "./search";

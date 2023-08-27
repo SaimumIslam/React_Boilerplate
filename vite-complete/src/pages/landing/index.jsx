@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-import { Button, Container, Span, Text } from "./_styles";
+import { RoundedButton } from "components/material-ui/buttons";
+
+import { ActionWraper, Container, Span, Text } from "./_styles";
 
 const Landing = () => {
   const [count, setCount] = useState(0);
@@ -18,8 +20,14 @@ const Landing = () => {
       <Text>
         Count: <Span data-testid="count">{count}</Span>
       </Text>
-      <Button onClick={increment}>Increment</Button>
-      <Button onClick={decrement}>Decrement</Button>
+      <ActionWraper>
+        <RoundedButton variant="contained" onClick={increment}>
+          Increment
+        </RoundedButton>
+        <RoundedButton variant="contained" onClick={decrement}>
+          Decrement
+        </RoundedButton>
+      </ActionWraper>
     </Container>
   );
 };

@@ -6,7 +6,7 @@ import { render, screen } from "@testing-library/react";
 import ManageAction from "../index";
 
 // Tests
-describe("modules root header", async () => {
+describe("manage action", async () => {
   it("Should render the page correctly", async () => {
     // Setup
     render(<ManageAction submit_text="Hello" />);

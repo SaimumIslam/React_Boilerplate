@@ -1,9 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
-// import Box from "@mui/material/Box";
-// import Typography from "@mui/material/Typography";
-
 export const NavBar = styled("nav")(({ theme }) => ({
   background: theme.palette.primary.main,
   color: theme.palette.common.white,

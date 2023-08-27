@@ -1,11 +1,12 @@
+import { forwardRef } from "react";
+import PropTypes from "prop-types";
+
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
-import PropTypes from "prop-types";
-import { forwardRef } from "react";
 
-import { FieldWraper, IconWraper, InputBase, InputLabel } from "./_styles";
+import { FieldWraper, FormLabel, IconWraper, InputBase } from "./_styles";
 
-const OutlineLabelInputField = forwardRef((props, ref) => {
+const OutlineInputField = forwardRef((props, ref) => {
   const {
     label,
     error,
@@ -26,20 +27,18 @@ const OutlineLabelInputField = forwardRef((props, ref) => {
           <Icon color="primary" />
         </IconWraper>
       )}
-      <FormControl
-        variant="standard"
-        error={error}
-        required={required}
-        fullWidth={fullWidth}>
-        <InputLabel shrink>{label}</InputLabel>
+      <FormControl error={error} required={required} fullWidth={fullWidth}>
+        {label && <FormLabel>{label}</FormLabel>}
         <InputBase placeholder={placeholder} inputRef={ref} {...others} />
-        <FormHelperText>{helperText}</FormHelperText>
+        {Boolean(helperText) && (
+          <FormHelperText variant="standard">{helperText}</FormHelperText>
+        )}
       </FormControl>
     </FieldWraper>
   );
 });
 
-OutlineLabelInputField.propTypes = {
+OutlineInputField.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   fullWidth: PropTypes.bool,
@@ -49,10 +48,11 @@ OutlineLabelInputField.propTypes = {
   error: PropTypes.bool,
 };
 
-OutlineLabelInputField.defaultProps = {
+OutlineInputField.defaultProps = {
+  label: "",
   required: false,
   fullWidth: true,
   placeholder: "Enter here",
 };
 
-export default OutlineLabelInputField;
+export default OutlineInputField;

@@ -1,7 +1,6 @@
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 
-export const Container = styled("div")(({ theme }) => ({
+export const Container = styled("section")(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   boxShadow: "0px 0px 12px rgba(0, 0, 0, 0.06)",
   borderRadius: 10,
@@ -12,8 +11,9 @@ export const Container = styled("div")(({ theme }) => ({
   },
 }));
 
-export const Title = styled(Typography)(({ theme }) => ({
-  fontSize: theme.typography.pxToRem(14),
+export const Title = styled("h2")(({ theme }) => ({
+  fontSize: theme.typography.pxToRem(16),
+  color: theme.palette.text.secondary,
 }));
 
 export const FormWraper = styled("form")(({ theme }) => ({

@@ -1,4 +1,6 @@
+import { Container } from "./_styles";
+
 function About() {
-  return <div>Please know about us</div>;
+  return <Container>Please know about us</Container>;
 }
 export default About;

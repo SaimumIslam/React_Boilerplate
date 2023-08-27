@@ -5,7 +5,7 @@ import { useMutation } from "react-query";
 import { FieldController } from "components/__controllers";
 import { ResponseLoader } from "components/modules/loaders";
 import { RoundedButton } from "components/material-ui/buttons";
-import { OutlineLabelInputField } from "components/material-ui/inputs";
+import { OutlineInputField } from "components/material-ui/inputs";
 
 import { LogInIcon } from "assets/icons";
 
@@ -57,7 +57,7 @@ function Login() {
               message: "Please provide username",
             },
           }}>
-          <OutlineLabelInputField label="Username" />
+          <OutlineInputField label="Username" />
         </FieldController>
         <FieldController
           name="password"
@@ -68,7 +68,7 @@ function Login() {
               message: "Please provide password",
             },
           }}>
-          <OutlineLabelInputField label="Password" />
+          <OutlineInputField label="Password" />
         </FieldController>
         <RoundedButton
           fullWidth

@@ -4,14 +4,16 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 
 import { FieldController } from "components/__controllers";
-import { OutlineLabelInputField } from "components/material-ui/inputs";
 import { ManageAction } from "components/modules/actions";
 import { ResponseLoader } from "components/modules/loaders";
+import { OutlineInputField } from "components/material-ui/inputs";
+import { OutlineSelectField } from "components/material-ui/selects";
 
 import useNavigation from "hooks/useNavigation";
 
 import handleFormError from "services/error-handling/form-error";
 import { createUser, updateUser } from "services/rest-api/users";
+import { CREATE_UPDATE_SORT_BY } from "data/search";
 
 import { FormContainer, FormFlexRow } from "./_styles";
 
@@ -73,22 +75,22 @@ function Form({ instance, is_update }) {
               message: "Invalid email",
             },
           }}>
-          <OutlineLabelInputField
+          <OutlineInputField
             label="Email"
             type="email"
             // readOnly={Boolean(is_update)}
           />
         </FieldController>
         <FieldController
-          name="secondary_email"
+          name="order_by"
           control={control}
           rules={{
-            pattern: {
-              value: /\S+@\S+\.\S+/,
-              message: "Invalid email",
+            required: {
+              value: true,
+              message: "Please provide first name",
             },
           }}>
-          <OutlineLabelInputField label="Secondary Email" type="email" />
+          <OutlineSelectField items={CREATE_UPDATE_SORT_BY} label="Sort By" />
         </FieldController>
       </FormFlexRow>
       <FormFlexRow>
@@ -101,10 +103,10 @@ function Form({ instance, is_update }) {
               message: "Please provide first name",
             },
           }}>
-          <OutlineLabelInputField label="First Name" />
+          <OutlineInputField label="First Name" />
         </FieldController>
         <FieldController name="last_name" control={control}>
-          <OutlineLabelInputField label="Last Name" />
+          <OutlineInputField label="Last Name" />
         </FieldController>
       </FormFlexRow>
       <FormFlexRow>
@@ -117,10 +119,10 @@ function Form({ instance, is_update }) {
               message: "Please provide mobile number",
             },
           }}>
-          <OutlineLabelInputField label="Mobile Number" type="tel" />
+          <OutlineInputField label="Mobile Number" type="tel" />
         </FieldController>
         <FieldController name="address" control={control}>
-          <OutlineLabelInputField label="Address" />
+          <OutlineInputField label="Address" />
         </FieldController>
       </FormFlexRow>
       <ManageAction

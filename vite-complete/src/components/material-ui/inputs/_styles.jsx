@@ -1,26 +1,28 @@
 import { styled } from "@mui/material/styles";
 
-import Box from "@mui/material/Box";
 import MuiInputBase from "@mui/material/InputBase";
-import MuiInputLabel from "@mui/material/InputLabel";
+import MuiFormLabel from "@mui/material/FormLabel";
 
-export const InputLabel = styled(MuiInputLabel)(({ theme }) => ({
-  "& .MuiInputLabel-root": {
-    color: theme.palette.primary.main,
-    fontSize: theme.typography.pxToRem(14),
-  },
-  "& .MuiInputLabel-asterisk": {
-    color: theme.palette.error.main,
-  },
-}));
-
-export const FieldWraper = styled(Box)(({ theme }) => ({
+export const FieldWraper = styled("div")(({ theme }) => ({
   width: "100%",
   display: "flex",
   gap: 15,
 }));
 
-export const IconWraper = styled(Box)(({ theme }) => ({
+export const FormLabel = styled(MuiFormLabel)(({ theme }) => ({
+  "&.MuiFormLabel-root": {
+    color: theme.palette.primary.main,
+    fontSize: theme.typography.pxToRem(14),
+  },
+  "&.MuiInputLabel-asterisk": {
+    color: theme.palette.error.main,
+  },
+  "&.Mui-error": {
+    color: theme.palette.error.main,
+  },
+}));
+
+export const IconWraper = styled("div")(({ theme }) => ({
   marginTop: 33,
   "& .MuiSvgIcon-root": {
     fontSize: theme.typography.pxToRem(22),
@@ -28,9 +30,6 @@ export const IconWraper = styled(Box)(({ theme }) => ({
 }));
 
 export const InputBase = styled(MuiInputBase)(({ theme }) => ({
-  "label + &": {
-    marginTop: theme.spacing(3),
-  },
   "& .MuiInputBase-input": {
     borderRadius: 5,
     position: "relative",

@@ -1,5 +1,4 @@
 import { styled } from "@mui/material/styles";
-// import Box from "@mui/material/Box";
 
 export const Root = styled("main")(({ theme }) => ({
   height: "100vh",

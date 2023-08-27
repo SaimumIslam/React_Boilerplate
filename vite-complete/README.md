@@ -37,6 +37,7 @@ Currently, we use plugins:
 - funcion name: camelCase
 - constant variable/data: SNAKE_CASE
 - react cmponents follows `.jsx` others `.js`
+- widgets: combined with material ui or others, component specific.
 - component folder includes: `index.jsx` and `_styles.jsx`
 - `_styles.jsx` includes only design and index.jsx only logic.
 - all sub-features should inside the main feature folder.
@@ -52,7 +53,6 @@ Currently, we use plugins:
   - \_\_providers: common used styled components
   - \_styles: common used styled components
   - material: customized material ui components
-  - widgets: combined with material ui or others, component specific.
   - modules: same as widgets, ui specific.
   - features: same as widgets, feature or requirement specific.
   - third-part: third party library ex: react-dropzone, tiny-react
