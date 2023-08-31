@@ -1,21 +1,28 @@
-// Imports
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
 
-// To Test
 import RootHeader from "../index";
 
-// Tests
-describe("modules root header", async () => {
-  it("Should render the page correctly", async () => {
-    // Setup
-    render(<RootHeader title="Hello" button_title="Button" />);
+// All test case are not written
+describe("props checking", async () => {
+  beforeAll(() => {
+    render(<RootHeader title="title" button_title="button_title" items_count={0} />);
+  });
 
-    const h1 = await screen.queryByText("Hello");
-    const button = await screen.queryByText("Hello");
+  afterAll(cleanup);
 
-    // Expectations
-    expect(h1).not.toBeNull();
-    expect(button).not.toBeNull();
+  it("check title", async () => {
+    const search_node = await screen.queryByText("title");
+    expect(search_node).not.toBeNull();
+  });
+
+  it("check items_count", async () => {
+    const search_node = await screen.queryByText("Total:", { exact: false });
+    expect(search_node).not.toBeInTheDocument();
+  });
+
+  it("check button title", async () => {
+    const search_node = await screen.queryByText("button_title");
+    expect(search_node).not.toBeInTheDocument();
   });
 });

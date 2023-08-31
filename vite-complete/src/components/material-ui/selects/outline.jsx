@@ -22,12 +22,13 @@ const OutlineSelectField = forwardRef((props, ref) => {
     error,
     value,
     required,
-    startIcon,
-    placeholder,
-    helperText,
     fullWidth,
-    ...other
+    startIcon,
+    helperText,
+    placeholder,
+    ...others
   } = props;
+
   const Icon = startIcon;
 
   return (
@@ -44,7 +45,7 @@ const OutlineSelectField = forwardRef((props, ref) => {
           input={<InputBase />}
           value={value || ""}
           IconComponent={AngleDownIcon}
-          {...other}>
+          {...others}>
           <SelectOption value="" disabled={required}>
             {placeholder}
           </SelectOption>
@@ -61,14 +62,15 @@ const OutlineSelectField = forwardRef((props, ref) => {
 });
 
 OutlineSelectField.propTypes = {
-  label: PropTypes.string.isRequired,
   error: PropTypes.bool,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  startIcon: PropTypes.node,
-  placeholder: PropTypes.string,
+  name: PropTypes.string,
   required: PropTypes.bool,
-  helperText: PropTypes.string,
   fullWidth: PropTypes.bool,
+  helperText: PropTypes.string,
+  placeholder: PropTypes.string,
+  startIcon: PropTypes.elementType,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -82,6 +84,7 @@ OutlineSelectField.defaultProps = {
   label: "",
   error: false,
   required: false,
+  fullWidth: true,
   placeholder: "Choose a option",
 };
 export default OutlineSelectField;

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 import { FieldController } from "components/__controllers";
 import { ResponseLoader } from "components/modules/loaders";
@@ -17,7 +17,8 @@ import { Container, FormWraper, Title } from "./_styles";
 function Login() {
   const { setLogIn } = useUserRedux();
 
-  const { status, mutate } = useMutation(attemptLogin, {
+  const { status, mutate } = useMutation({
+    mutationFn: attemptLogin,
     onSuccess: ({ user, token }) => {
       localStorage.setItem(import.meta.env.VITE_LOCAL_DB_TOKEN_KEY, token);
       setLogIn(user);

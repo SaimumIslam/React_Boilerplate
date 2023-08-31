@@ -5,7 +5,7 @@ import { Root } from "./_styles";
 
 const CenterLayout = ({ children }) => {
   return (
-    <Root component="main">
+    <Root>
       <CssBaseline />
       {children}
     </Root>

@@ -10,6 +10,7 @@ const OutlineInputField = forwardRef((props, ref) => {
   const {
     label,
     error,
+    color,
     required,
     fullWidth,
     startIcon,
@@ -24,12 +25,16 @@ const OutlineInputField = forwardRef((props, ref) => {
     <FieldWraper>
       {Boolean(startIcon) && (
         <IconWraper>
-          <Icon color="primary" />
+          <Icon color={color} />
         </IconWraper>
       )}
-      <FormControl error={error} required={required} fullWidth={fullWidth}>
+      <FormControl
+        color={color}
+        error={error}
+        required={required}
+        fullWidth={fullWidth}>
         {label && <FormLabel>{label}</FormLabel>}
-        <InputBase placeholder={placeholder} inputRef={ref} {...others} />
+        <InputBase placeholder={placeholder} inputRef={ref} inputProps={others} />
         {Boolean(helperText) && (
           <FormHelperText variant="standard">{helperText}</FormHelperText>
         )}
@@ -40,19 +45,26 @@ const OutlineInputField = forwardRef((props, ref) => {
 
 OutlineInputField.propTypes = {
   label: PropTypes.string.isRequired,
+  startIcon: PropTypes.elementType,
   placeholder: PropTypes.string,
   fullWidth: PropTypes.bool,
   helperText: PropTypes.any,
-  startIcon: PropTypes.any,
   required: PropTypes.bool,
+  name: PropTypes.string,
   error: PropTypes.bool,
+  color: PropTypes.oneOfType([
+    PropTypes.oneOf(["primary", "secondary", "error", "info", "success", "warning"]),
+    PropTypes.string,
+  ]),
 };
 
 OutlineInputField.defaultProps = {
   label: "",
+  error: false,
   required: false,
   fullWidth: true,
   placeholder: "Enter here",
+  color: "primary",
 };
 
 export default OutlineInputField;

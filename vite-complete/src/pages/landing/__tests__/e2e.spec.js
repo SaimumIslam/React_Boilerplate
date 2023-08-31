@@ -2,25 +2,29 @@
 
 import { expect, test } from "@playwright/test";
 
-test.beforeEach(async ({ page }) => {
-  await page.goto("/");
-});
-
-// test("has title", async ({ page }) => {
-//   await expect(page).toHaveTitle(/PTE/i);
-// });
-
 test.describe("Counter", () => {
-  test("Initial Value", async ({ page }) => {
+  // test("has title", async ({ page }) => {
+  //   await expect(page).toHaveTitle(/PTE/i);
+  // });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+  });
+
+  test.afterEach(async ({ page }) => {
+    await page.close();
+  });
+
+  test("initial check", async ({ page }) => {
     await expect(page.getByTestId("count")).toHaveText("0");
   });
 
-  test("Increment count", async ({ page }) => {
+  test("increment check", async ({ page }) => {
     await page.getByRole("button", { name: "Increment" }).click();
     await expect(page.getByTestId("count")).toHaveText("1");
   });
 
-  test("Decrement count", async ({ page }) => {
+  test("decrement check", async ({ page }) => {
     await page.getByRole("button", { name: "Decrement" }).click();
     await expect(page.getByTestId("count")).toHaveText("-1");
   });

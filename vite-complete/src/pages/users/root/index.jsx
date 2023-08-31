@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
+import { TextButton } from "components/widgets/buttons";
 import { RootHeader } from "components/modules/headers";
 import { ResponseLoader } from "components/modules/loaders";
-import { TextIconButton } from "components/widgets/buttons";
 import { BasePagination } from "components/material-ui/paginations";
 
 import { MinimizeIcon, SearchIcon } from "assets/icons";
@@ -19,7 +19,7 @@ function Root() {
   const { query, setPath } = useNavigation();
   const initialPage = parseInt(query?.page) || 1;
 
-  const [isSearch, setIsSearch] = useState(true);
+  const [isSearch, setIsSearch] = useState(false);
   const toggleSearch = () => {
     setIsSearch((prev) => !prev);
   };
@@ -32,22 +32,24 @@ function Root() {
     setPage(value);
   };
 
-  const { data, isLoading } = useQuery(["total_users", page, offset, query], () =>
-    totalUsers({
-      ...query,
-      limit: offset,
-      offset: (page - 1) * offset,
-    }),
-  );
+  const { data, isFetching } = useQuery({
+    queryKey: ["total_users", page, offset, query],
+    queyFn: () =>
+      totalUsers({
+        ...query,
+        limit: offset,
+        offset: (page - 1) * offset,
+      }),
+  });
 
   const items = (Array.isArray(data?.results) && data?.results) || [];
 
-  if (isLoading) return <ResponseLoader />;
+  if (isFetching) return <ResponseLoader />;
 
   return (
     <Container>
-      <RootHeader items={data?.count || 0} route="create" title="People">
-        <TextIconButton
+      <RootHeader items_count={data?.count || 0} route="create" title="Users">
+        <TextButton
           text="Advanced Search"
           onClick={toggleSearch}
           startIcon={isSearch ? MinimizeIcon : SearchIcon}

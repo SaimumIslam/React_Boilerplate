@@ -7,8 +7,15 @@ import { AddIcon } from "assets/icons";
 import { ChildWraper, Container, Title, TitleWraper } from "./_styles";
 
 function RootHeader(props) {
-  const { items, route, title, children, button_icon, button_title, button_color } =
-    props;
+  const {
+    route,
+    title,
+    children,
+    items_count,
+    button_icon,
+    button_title,
+    button_color,
+  } = props;
 
   const Icon = button_icon;
 
@@ -27,10 +34,10 @@ function RootHeader(props) {
         )}
         <Title>
           {title}
-          {(Boolean(items) || items <= 0) && (
+          {Boolean(items_count) && (
             <>
               <small>|</small>
-              <span>Total: {items}</span>
+              <span>Total: {items_count}</span>
             </>
           )}
         </Title>
@@ -41,14 +48,14 @@ function RootHeader(props) {
 }
 
 RootHeader.propTypes = {
-  items: PropTypes.number,
+  onBack: PropTypes.func,
   route: PropTypes.string,
-  title: PropTypes.string,
   children: PropTypes.node,
   button_icon: PropTypes.any,
+  items_count: PropTypes.number,
   button_color: PropTypes.string,
   button_title: PropTypes.string,
-  onBack: PropTypes.func,
+  title: PropTypes.string.isRequired,
 };
 RootHeader.defaultProps = {
   route: "",

@@ -1,6 +1,6 @@
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { Container } from "./elements";
+import { Container } from "./_styles";
 
 const ResponseLoader = () => {
   return (

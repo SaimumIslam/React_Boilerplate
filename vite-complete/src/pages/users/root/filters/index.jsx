@@ -22,8 +22,6 @@ function Filters() {
 
   const defaultValues = {
     keyword: query?.keyword || "",
-    roles: query?.roles || "",
-    lms_roles: query?.lms_roles || "",
     order_by: query?.order_by || "",
   };
 
@@ -51,7 +49,7 @@ function Filters() {
           <OutlineInputField label="Keyword" />
         </FieldController>
         <FieldController name="order_by" control={control}>
-          <OutlineSelectField items={CREATE_UPDATE_SORT_BY} label="Sort By" />
+          <OutlineSelectField items={CREATE_UPDATE_SORT_BY} label="Order By" />
         </FieldController>
       </FilterFields>
       <SearchAction onSubmit={handleSubmit(onSubmit)} onCancel={handleClear} />

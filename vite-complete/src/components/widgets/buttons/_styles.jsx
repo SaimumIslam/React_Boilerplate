@@ -28,7 +28,7 @@ export const IconWraper = styled("div")(({ theme }) => ({
   },
 }));
 
-export const TextButton = styled("p")(({ theme }) => ({
+export const ViewText = styled("p")(({ theme }) => ({
   fontWeight: theme.typography.fontWeightMedium,
   fontSize: theme.typography.pxToRem(14),
   color: "inherit",

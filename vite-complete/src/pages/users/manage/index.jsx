@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { ResponseLoader } from "components/modules/loaders";
 
@@ -12,11 +12,13 @@ function Manage() {
   const { is_update, params } = useNavigation();
   const user_id = params?.id;
 
-  const { isLoading, data } = useQuery(["details", user_id], () => userDetails(user_id), {
-    enabled: false,
+  const { isFetching, data } = useQuery({
+    queryKey: ["details", user_id],
+    queryFn: () => userDetails(user_id),
+    enabled: true,
   });
 
-  if (isLoading) return <ResponseLoader />;
+  if (isFetching) return <ResponseLoader />;
 
   return (
     <Container>

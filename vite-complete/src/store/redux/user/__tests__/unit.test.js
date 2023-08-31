@@ -1,6 +1,7 @@
-import reducer, { setLogin, setUser, setLogOut } from "../slice";
+import { describe, expect, it } from "vitest";
+import reducer, { setLogin, setLogOut, setUser } from "../slice";
 
-describe("User reducer", () => {
+describe("reducer", () => {
   const user = { role: "SA" };
 
   const initialState = {

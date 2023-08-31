@@ -1,11 +1,12 @@
 import { useSnackbar } from "notistack";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 
 import { FieldController } from "components/__controllers";
 import { ManageAction } from "components/modules/actions";
 import { ResponseLoader } from "components/modules/loaders";
+import { BaseCheckbox } from "components/material-ui/checkboxs";
 import { OutlineInputField } from "components/material-ui/inputs";
 import { OutlineSelectField } from "components/material-ui/selects";
 
@@ -13,7 +14,7 @@ import useNavigation from "hooks/useNavigation";
 
 import handleFormError from "services/error-handling/form-error";
 import { createUser, updateUser } from "services/rest-api/users";
-import { CREATE_UPDATE_SORT_BY } from "data/search";
+import { NUMBER_ORDER } from "data/search";
 
 import { FormContainer, FormFlexRow } from "./_styles";
 
@@ -29,17 +30,19 @@ function Form({ instance, is_update }) {
   const defaultValues = {
     id: instance?.id,
     email: instance?.email || "",
-    first_name: instance?.first_name || "",
-    last_name: instance?.last_name || "",
-    address: instance?.address || "",
     mobile: instance?.mobile || "",
+    address: instance?.address || "",
+    last_name: instance?.last_name || "",
+    first_name: instance?.first_name || "",
+    is_active: instance?.is_active || false,
   };
 
   const { reset, control, setError, handleSubmit } = useForm({
     defaultValues: defaultValues,
   });
 
-  const { isLoading, mutate } = useMutation(apiFunction, {
+  const { isLoading, mutate } = useMutation({
+    mutationFn: apiFunction,
     onError: (error) => {
       handleFormError(error, setError);
     },
@@ -82,15 +85,15 @@ function Form({ instance, is_update }) {
           />
         </FieldController>
         <FieldController
-          name="order_by"
+          name="role"
           control={control}
           rules={{
             required: {
               value: true,
-              message: "Please provide first name",
+              message: "Please provide role",
             },
           }}>
-          <OutlineSelectField items={CREATE_UPDATE_SORT_BY} label="Sort By" />
+          <OutlineSelectField items={NUMBER_ORDER} label="Role" />
         </FieldController>
       </FormFlexRow>
       <FormFlexRow>
@@ -125,6 +128,17 @@ function Form({ instance, is_update }) {
           <OutlineInputField label="Address" />
         </FieldController>
       </FormFlexRow>
+      <FieldController
+        name="is_active"
+        control={control}
+        rules={{
+          required: {
+            value: true,
+            message: "Please provide active",
+          },
+        }}>
+        <BaseCheckbox label="Active" />
+      </FieldController>
       <ManageAction
         onSubmit={handleSubmit(onSubmit)}
         onCancel={handleCancel}

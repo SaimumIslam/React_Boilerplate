@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import react from "@vitejs/plugin-react-swc";
 import { defineConfig, loadEnv } from "vite";
 
@@ -21,9 +22,13 @@ export default ({ mode }) => {
     },
     test: {
       environment: "jsdom",
-      setupFiles: ["./vitest.setup.js"],
+      setupFiles: ["./test/vitest.setup.js"],
       include: ["**.test.jsx", "**.test.js"],
-      exclude: ["**/node_modules/**", "**/build/**", "**/.{git,cache,output,temp}/**"],
+      exclude: [
+        "**/node_modules/**",
+        "**/build/**",
+        "**/.{git,cache,output,temp}/**",
+      ],
       globals: true,
     },
     resolve: {

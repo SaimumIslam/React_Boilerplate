@@ -1,18 +1,24 @@
-// Imports
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { cleanup, render, screen } from "@testing-library/react";
 
-// To Test
 import ManageAction from "../index";
 
-// Tests
-describe("manage action", async () => {
-  it("Should render the page correctly", async () => {
-    // Setup
-    render(<ManageAction submit_text="Hello" />);
-    const h1 = await screen.queryByText("Hello");
+// All test case are not written
+describe("props checking", async () => {
+  beforeAll(() => {
+    render(
+      <ManageAction
+        submit_text="submit_text"
+        onSubmit={() => {}}
+        onCancel={() => {}}
+      />,
+    );
+  });
 
-    // Expectations
-    expect(h1).not.toBeNull();
+  afterAll(cleanup);
+
+  it("check submit_text", async () => {
+    const search_node = await screen.queryByText("submit_text");
+    expect(search_node).not.toBeNull();
   });
 });
