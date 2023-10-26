@@ -1,5 +1,13 @@
 # React + Vite
 
+# React + Vite
+
+- [Developer Instruction](#developer-instruction)
+- [Project Structure](#project-src-structure)
+- [Run Command](#run-command)
+- [Linting Command](#linting-command)
+- [Packages](#packages)
+
 We create this template using:
 
 - [React](https://react.dev/)
@@ -20,14 +28,11 @@ Plugins
 - `_styles.jsx` includes only design and index.jsx only logic.
 - all sub-features should inside the main folder.
 - common feature should be inside the component features folder.
-- please write tests in all possible ways in `__tests__` folder.
-- unit testing is a must for component and we use `unit.test.jsx` for unit test.
-- it is recommended to write e2e test for pages and we use `e2e.spec.js`
 - please follow the import style of any page and code.
 
 **Note**: You are always welcome to do good changes and refactor.
 
-## Project Structure [src]
+## Project Src Structure
 
 - assets: images and icons and other resources.
 - components:
@@ -54,8 +59,7 @@ Plugins
 - App.jsx: all higher order components and providers.
 - main.jsx: root file.
 
-
-## Run command
+## Run Command
 
 `npm run dev` (Run using development environment:)
 
@@ -65,12 +69,11 @@ Plugins
 
 `npm run preview` (Run static preview:)
 
-## Linting
+## Linting Command
 
 `npm run lint` (Check linting:)
 
 `npm run lint:fix` (Check linting fix:)
-
 
 ### Packages
 

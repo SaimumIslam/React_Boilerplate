@@ -41,7 +41,7 @@ function Form({ instance, is_update }) {
     defaultValues: defaultValues,
   });
 
-  const { isLoading, mutate } = useMutation({
+  const { isPending, mutate } = useMutation({
     mutationFn: apiFunction,
     onError: (error) => {
       handleFormError(error, setError);
@@ -60,7 +60,7 @@ function Form({ instance, is_update }) {
     reset(defaultValues);
   };
 
-  if (isLoading) return <ResponseLoader />;
+  if (isPending) return <ResponseLoader />;
 
   return (
     <FormContainer>

@@ -1,8 +1,8 @@
-import NotFound from "pages/not-found";
 import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import LandingLayout from "layouts/landing";
+import NotFound from "pages/not-found";
 
 import Authenticated from "./authenticated";
 import BROWSE_ROUTE from "./paths";

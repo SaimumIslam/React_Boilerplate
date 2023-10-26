@@ -1,5 +1,17 @@
 # React + Vite
 
+## Table of Contents
+
+- [Developer Instruction](#developer-instruction)
+- [Instruction Tests Writing](#instruction-tests-writing)
+- [Activate Testing](#activate-testing)
+- [Project Src Structure](#project-src-structure)
+- [Project Test Structure](#project-test-structure)
+- [Run Command](#run-command)
+- [Linting Command](#linting-command)
+- [Test command](#test-command)
+- [Packages](#packages)
+
 We create this template using:
 
 - [React](https://react.dev/)
@@ -20,13 +32,13 @@ Plugins
 - `_styles.jsx` includes only design and index.jsx only logic.
 - all sub-features should inside the main folder.
 - common feature should be inside the component features folder.
-- please write tests in all possible ways in `__tests__` folder.
-- unit testing is a must for component and we use `unit.test.jsx` for unit test.
-- it is recommended to write e2e test for pages and we use `e2e.spec.js`
 - please follow the import style of any page and code.
 
-## Instruction Writing Tests
+## Instruction Tests Writing
 
+- please write tests in all possible ways in `__tests__` folder.
+- it is recommended to write e2e test for pages and we use `e2e.spec.js`
+- unit testing is a must for component and we use `unit.test.jsx` for unit test.
 - use _aria-label_ attribute for inputs if necessery
 - use _title_ attribute for texts if necessery
 - use _data-testid_ attribute for value or action if necessery
@@ -38,7 +50,7 @@ For more tests instruction, please follow
 
 **Note**: You are always welcome to do good changes and refactor.
 
-## Project Structure [src]
+## Project Src Structure
 
 - assets: images and icons and other resources.
 - components:
@@ -67,7 +79,7 @@ For more tests instruction, please follow
 - App.jsx: all higher order components and providers.
 - main.jsx: root file.
 
-## Project Structure [test]
+## Project Test Structure
 
 - \_\_data\_\_:
 
@@ -79,7 +91,7 @@ For more tests instruction, please follow
 - playwright.teardown.js: last run, cleanup
 - vitest.setup.js: first run, cleanup
 
-## Run command
+## Run Command
 
 `npm run dev` (Run using development environment:)
 
@@ -89,7 +101,7 @@ For more tests instruction, please follow
 
 `npm run preview` (Run static preview:)
 
-## Linting
+## Linting Command
 
 `npm run lint` (Check linting:)
 

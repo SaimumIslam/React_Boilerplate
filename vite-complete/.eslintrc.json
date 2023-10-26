@@ -75,6 +75,11 @@
             "position": "after"
           },
           {
+            "pattern": "pages/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
             "pattern": "routes",
             "group": "internal",
             "position": "after"

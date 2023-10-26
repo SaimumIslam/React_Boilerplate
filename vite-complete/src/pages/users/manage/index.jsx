@@ -15,7 +15,7 @@ function Manage() {
   const { isFetching, data } = useQuery({
     queryKey: ["details", user_id],
     queryFn: () => userDetails(user_id),
-    enabled: true,
+    enabled: is_update,
   });
 
   if (isFetching) return <ResponseLoader />;

@@ -17,7 +17,7 @@ import { Container, FormWraper, Title } from "./_styles";
 function Login() {
   const { setLogIn } = useUserRedux();
 
-  const { status, mutate } = useMutation({
+  const { isPending, mutate } = useMutation({
     mutationFn: attemptLogin,
     onSuccess: ({ user, token }) => {
       localStorage.setItem(import.meta.env.VITE_LOCAL_DB_TOKEN_KEY, token);
@@ -41,7 +41,7 @@ function Login() {
     [mutate],
   );
 
-  if (status === "loading" || status === "success") {
+  if (isPending) {
     return <ResponseLoader />;
   }
 
