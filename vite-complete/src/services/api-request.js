@@ -6,11 +6,11 @@ const formatErrorResponse = (error_response) => {
     for (let [key, value] of Object.entries(error_response)) {
       error_object[key] = value[0];
     }
-    return error_object;
+    return { message: error_object };
   } else if (error_response?.hasOwnProperty("detail")) {
-    return error_response?.detail;
+    return { message: error_response?.detail };
   }
-  return error_response;
+  return { message: error_response };
 };
 
 const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) => {
