@@ -7,7 +7,7 @@ import { OutlineSelectField } from "components/material-ui/selects";
 
 import useNavigation from "hooks/useNavigation";
 
-import { formatSearchData } from "utils/format-helper";
+import { formatSearchData } from "utils/format";
 import { CREATE_UPDATE_SORT_BY } from "data/search";
 
 import { FilterContainer, FilterFields } from "./_styles";

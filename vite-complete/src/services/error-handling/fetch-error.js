@@ -1,7 +1,7 @@
 const handleFetchError = (error) => {
-  const { status, message } = error?.response || {};
+  const { status_code, message } = error?.response || {};
 
-  switch (status) {
+  switch (status_code) {
     case 400:
       // eslint-disable-next-line no-console
       console.log(message);

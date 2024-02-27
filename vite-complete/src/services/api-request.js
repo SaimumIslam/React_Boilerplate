@@ -50,8 +50,8 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
   } else {
     const error = new Error("An error occurred while interacting with api.");
     error.response = {
-      status: api_response.status,
-      message: error_resoponse,
+      status_code: error_resoponse.status_code || api_response.status,
+      message: error_resoponse.message || api_response.statusText,
     };
 
     if (import.meta.env.DEV) {
