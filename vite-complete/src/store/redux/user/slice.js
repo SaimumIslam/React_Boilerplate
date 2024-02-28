@@ -1,10 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const saved_user = localStorage.getItem(import.meta.env.VITE_LOCAL_DB_USER_KEY);
+import TokenStore from "helpers/token-store";
+import UserStore from "helpers/user-store";
+
+const userStore = new UserStore();
+const tokenStore = new TokenStore("access");
+
+const saved_user = userStore.getUser();
+const saved_token = tokenStore.getToken();
 
 const initialState = {
   is_login: Boolean(saved_user) ? true : false,
   user: JSON.parse(saved_user) || {},
+  token: saved_token,
 };
 
 export const slice = createSlice({
@@ -13,16 +21,12 @@ export const slice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
-
-      const json_user = JSON.stringify(action.payload);
-      localStorage.setItem(import.meta.env.VITE_LOCAL_DB_USER_KEY, json_user);
+      userStore.setUser(action.payload);
     },
     setLogin: (state, action) => {
       state.is_login = true;
-      state.user = action.payload;
-
-      const json_user = JSON.stringify(action.payload);
-      localStorage.setItem(import.meta.env.VITE_LOCAL_DB_USER_KEY, json_user);
+      state.token = action.payload;
+      tokenStore.setToken(action.payload);
     },
     setLogOut: (state, action) => {
       state.user = {};

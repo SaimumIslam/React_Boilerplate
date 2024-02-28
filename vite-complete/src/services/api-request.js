@@ -1,3 +1,5 @@
+import TokenStore from "helpers/token-store";
+
 const formatErrorResponse = (error_response) => {
   if (Array.isArray(error_response)) {
     return error_response[0];
@@ -19,7 +21,8 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
   const api_route = Boolean(params) ? `${url}?${query_params}` : url;
   const base_url = `${import.meta.env.VITE_SERVER_DOMAIN}${api_route}`;
 
-  const access_token = import.meta.env.VITE_LOCAL_DB_TOKEN_KEY;
+  const tokenStore = new TokenStore("access");
+  const access_token = tokenStore.getToken();
 
   const controller = new AbortController();
   const signal = controller.signal;
@@ -29,7 +32,7 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     signal: signal,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Token ${localStorage.getItem(access_token)}`,
+      Authorization: `Token ${access_token}`,
     },
     body: JSON.stringify(data),
   });

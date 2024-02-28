@@ -44,6 +44,7 @@ export default ({ mode }) => {
         store: "/src/store",
         themes: "/src/themes",
         utils: "/src/utils",
+        helpers: "/src/helpers",
       },
     },
   });
