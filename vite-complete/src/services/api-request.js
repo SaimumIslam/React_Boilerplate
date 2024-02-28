@@ -37,7 +37,6 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
   // const timout_id = setTimeout(() => controller.abort(), timeout);
 
   const response_data = await api_response.json();
-  const error_resoponse = formatErrorResponse(response_data);
 
   // clearTimeout(timout_id);
 
@@ -49,6 +48,7 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
     return response_data;
   } else {
     const error = new Error("An error occurred while interacting with api.");
+    const error_resoponse = formatErrorResponse(response_data);
     error.response = {
       status_code: error_resoponse.status_code || api_response.status,
       message: error_resoponse.message || api_response.statusText,
