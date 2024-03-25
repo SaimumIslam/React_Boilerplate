@@ -1,4 +1,5 @@
 import TokenStore from "helpers/token-store";
+import { hasParam } from "utils/check";
 
 const formatErrorResponse = (error_response) => {
   if (Array.isArray(error_response)) {
@@ -18,7 +19,7 @@ const formatErrorResponse = (error_response) => {
 const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) => {
   const query_params = new URLSearchParams(params);
 
-  const api_route = Boolean(params) ? `${url}?${query_params}` : url;
+  const api_route = hasParam(params) ? `${url}?${query_params}` : url;
   const base_url = `${import.meta.env.VITE_SERVER_DOMAIN}${api_route}`;
 
   const tokenStore = new TokenStore("access");
