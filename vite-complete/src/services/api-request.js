@@ -40,7 +40,13 @@ const apiRequest = async ({ method, url, params, data, timeout = 20 * 1000 }) =>
 
   // const timout_id = setTimeout(() => controller.abort(), timeout);
 
-  const response_data = await api_response.json();
+  const response_text = await api_response.text();
+  const response_data =
+    response_text === ""
+      ? { status_code: api_response.status, message: api_response.statusText }
+      : JSON.parse(response_text);
+
+  // const response_data = await api_response.json();
 
   // clearTimeout(timout_id);
 
